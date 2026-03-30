@@ -1,16 +1,48 @@
-# React + Vite
+# Student Application Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React form component built with controlled inputs, client-side validation, and success state feedback.
 
-Currently, two official plugins are available:
+## Built With
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- useState
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Controlled form inputs using a single shared state object
+- Client-side validation with inline error messages
+- Success message displayed on valid submission
+- Form resets after successful submission
 
-## Expanding the ESLint configuration
+## Form Fields
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Field | Validation |
+|---|---|
+| Full Name | Required |
+| Email | Required, must contain `@` |
+| Phone | Required, must be at least 10 digits, numbers only |
+| Experience Level | Required, select from dropdown |
+| Reason to Join | Required |
+
+## How It Works
+
+- `handleChange` updates the shared `form` state on every input change
+- `validate` checks each field and returns an `errors` object
+- `handleSubmit` runs validation on submit — if errors exist, they display inline in red. If no errors, the form submits, resets, and shows a success message.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Import and render the component in `App.jsx`:
+
+```jsx
+import StudentApplicationForm from "./StudentApplicationForm";
+
+function App() {
+  return <StudentApplicationForm />;
+}
+```
