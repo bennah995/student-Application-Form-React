@@ -146,7 +146,7 @@ export default function StudentApplicationForm(){
 
         <button type="submit">SUBMIT</button>
       </form>
-      {success && <h5><i>Application Placed successfully</i></h5>}
+      {success && <h5><i>Thanks for applying, we'll be in touch!</i></h5>}
     </div>
   )
 }
